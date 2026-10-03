@@ -25,7 +25,16 @@ body {
     color: white;
 }
 
-/* stars */
+/* ================= SLIDE 1 ================= */
+
+#slide1 {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
 .star {
     position: absolute;
     color: white;
@@ -44,7 +53,6 @@ body {
     to { opacity: 1; transform: scale(1.2); }
 }
 
-/* moon */
 .moon {
     position: absolute;
     right: 14%;
@@ -67,7 +75,6 @@ body {
     background: #193c72;
 }
 
-/* sunflower decorations */
 .sunflower {
     position: absolute;
     font-size: 65px;
@@ -94,7 +101,6 @@ body {
     transform: rotate(10deg);
 }
 
-/* little date */
 .date {
     position: absolute;
     right: 8%;
@@ -104,7 +110,6 @@ body {
     transform: rotate(-4deg);
 }
 
-/* main content */
 .container {
     min-height: 100vh;
     display: flex;
@@ -153,7 +158,6 @@ h1 {
     letter-spacing: .5px;
 }
 
-/* loading bar */
 .loading-area {
     margin-top: 38px;
 }
@@ -187,7 +191,6 @@ h1 {
     margin-top: 8px;
 }
 
-/* button */
 .enter-btn {
     margin-top: 35px;
     padding: 13px 30px;
@@ -207,7 +210,6 @@ h1 {
     background: rgba(255,255,255,.22);
 }
 
-/* bottom notebook */
 .note {
     position: absolute;
     bottom: 4%;
@@ -231,7 +233,6 @@ h1 {
     color: white;
 }
 
-/* bottom books */
 .books {
     position: absolute;
     bottom: 2%;
@@ -246,6 +247,146 @@ h1 {
     margin-top: 3px;
     background: rgba(20,35,60,.8);
     box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+/* ================= SLIDE 2 ================= */
+
+#slide2 {
+    position: fixed;
+    inset: 0;
+    min-height: 100vh;
+    width: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow-y: auto;
+    padding: 25px;
+
+    background:
+        linear-gradient(rgba(30,45,40,.25), rgba(50,30,20,.55)),
+        linear-gradient(145deg, #183f72, #8c6b91, #e6b66f);
+}
+
+.krishna-card {
+    width: min(700px, 90%);
+    padding: 35px 25px;
+    border-radius: 28px;
+    background: rgba(255,248,228,.94);
+    color: #4b3025;
+    box-shadow: 0 20px 60px rgba(0,0,0,.28);
+}
+
+.krishna-card .small {
+    font-family: 'Caveat', cursive;
+    font-size: 24px;
+}
+
+.krishna-card h2 {
+    font-family: 'Caveat', cursive;
+    font-size: clamp(48px, 10vw, 75px);
+    margin: 5px 0 20px;
+}
+
+.krishna-note {
+    font-family: 'Caveat', cursive;
+    font-size: clamp(26px, 5vw, 38px);
+    line-height: 1.3;
+}
+
+.shyam {
+    margin-top: 18px;
+    font-family: 'Caveat', cursive;
+    font-size: 24px;
+}
+
+.krishna-card button {
+    margin-top: 28px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    background: #6d432b;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* ================= SLIDE 3 ================= */
+
+#slide3 {
+    position: fixed;
+    inset: 0;
+    min-height: 100vh;
+    width: 100%;
+    display: none;
+    justify-content: center;
+    color: white;
+    overflow-y: auto;
+
+    background:
+        radial-gradient(circle at 15% 15%, rgba(255,215,110,.20), transparent 25%),
+        radial-gradient(circle at 85% 80%, rgba(255,190,100,.18), transparent 25%),
+        linear-gradient(145deg, #07152e, #123d70, #4f557e);
+}
+
+.dream-wrapper {
+    width: min(1000px, 92%);
+    padding: 45px 10px;
+    text-align: center;
+}
+
+.dream-wrapper h2 {
+    font-family: 'Caveat', cursive;
+    font-size: clamp(45px, 8vw, 75px);
+    color: #ffd978;
+}
+
+.dream-intro {
+    max-width: 750px;
+    margin: 10px auto 25px;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+.dream-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.dream-card {
+    padding: 20px;
+    border-radius: 20px;
+    text-align: left;
+    background: rgba(255,255,255,.10);
+    border: 1px solid rgba(255,255,255,.16);
+    backdrop-filter: blur(8px);
+}
+
+.dream-card .icon {
+    font-size: 28px;
+}
+
+.dream-card h3 {
+    font-family: 'Caveat', cursive;
+    font-size: 28px;
+    color: #ffd978;
+    margin: 5px 0;
+}
+
+.dream-card p {
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.final-note {
+    max-width: 750px;
+    margin: 30px auto;
+    padding-bottom: 30px;
+    font-family: 'Caveat', cursive;
+    font-size: 28px;
+    line-height: 1.4;
+    color: #fff1c2;
 }
 
 /* mobile */
@@ -285,135 +426,93 @@ h1 {
     .date {
         font-size: 18px;
     }
-}
-/* ===== SLIDES ===== */
 
-#slide1 {
-    position: fixed;
-    inset: 0;
-    min-height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    .dream-grid {
+        grid-template-columns: 1fr;
+    }
 
-#slide2,
-#slide3 {
-    display: none;
-}
-/* ===== VRINDAVAN SLIDE ===== */
-
-#slide2 {
-    position: fixed;
-    inset: 0;
-    min-height: 100vh;
-    width: 100%;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    overflow-y: auto;
-    padding: 25px;
-
-    background:
-        linear-gradient(rgba(30,45,40,.25), rgba(50,30,20,.55)),
-        linear-gradient(145deg, #183f72, #8c6b91, #e6b66f);
-}
-
-#slide2.active {
-    display: flex;
-}
-
-.krishna-card {
-    width: min(700px, 90%);
-    padding: 35px 25px;
-    border-radius: 28px;
-
-    background: rgba(255,248,228,.92);
-    color: #4b3025;
-
-    box-shadow: 0 20px 60px rgba(0,0,0,.28);
-}
-
-.krishna-card .small {
-    font-family: 'Caveat', cursive;
-    font-size: 24px;
-}
-
-.krishna-card h2 {
-    font-family: 'Caveat', cursive;
-    font-size: clamp(48px, 10vw, 75px);
-    margin: 5px 0 20px;
-}
-
-.krishna-note {
-    font-family: 'Caveat', cursive;
-    font-size: clamp(26px, 5vw, 38px);
-    line-height: 1.3;
-}
-
-.shyam {
-    margin-top: 18px;
-    font-family: 'Caveat', cursive;
-    font-size: 24px;
-}
-
-.krishna-card button {
-    margin-top: 28px;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 25px;
-    background: #6d432b;
-    color: white;
-    font-size: 14px;
-    cursor: pointer;
+    .krishna-card {
+        padding: 28px 20px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="star s1">✦</div>
-<div class="star s2">✧</div>
-<div class="star s3">✦</div>
-<div class="star s4">✧</div>
-<div class="star s5">✦</div>
+<!-- ================= SLIDE 1 ================= -->
 
-<div class="moon"></div>
+<section id="slide1">
 
-<div class="date">12 October ♡</div>
+    <div class="star s1">✦</div>
+    <div class="star s2">✧</div>
+    <div class="star s3">✦</div>
+    <div class="star s4">✧</div>
+    <div class="star s5">✦</div>
 
-<div class="sunflower flower1">🌻</div>
-<div class="sunflower flower2">🌻</div>
-<div class="sunflower flower3">🌻</div>
+    <div class="moon"></div>
 
-<div class="books">
-    <div class="book">Good Things ✦</div>
-    <div class="book">Take Your Time ♡</div>
-    <div class="book">You Got This!</div>
-</div>
+    <div class="date">12 October ♡</div>
 
-<div class="note">
-    Today:
-    <br>
-    Be happy.
-    <br>
-    Feel loved.
-    <br>
-    Dream BIG.
-    <br>
-    ♡
-</div>
-<!-- SLIDE 1 START -->
-<div id="slide1">
-<main class="container">
-    ...
+    <div class="sunflower flower1">🌻</div>
+    <div class="sunflower flower2">🌻</div>
+    <div class="sunflower flower3">🌻</div>
 
-</main>
-</div>
-<!-- SLIDE 1 END -->
-<!-- ===== SLIDE 2 : VRINDAVAN ===== -->
+    <div class="books">
+        <div class="book">Good Things ✦</div>
+        <div class="book">Take Your Time ♡</div>
+        <div class="book">You Got This!</div>
+    </div>
+
+    <div class="note">
+        Today:
+        <br>
+        Be happy.
+        <br>
+        Feel loved.
+        <br>
+        Dream BIG.
+        <br>
+        ♡
+    </div>
+
+    <main class="container">
+
+        <div class="small-title">
+            Someone has a birthday today... <span>👀</span>
+        </div>
+
+        <h1>
+            Happy Birthday,
+            <div class="name">Sadhana!</div>
+        </h1>
+
+        <div class="subtitle">
+            This little world is made just for you ♡
+        </div>
+
+        <div class="loading-area">
+
+            <div class="loading-bar">
+                <div class="loading-fill"></div>
+            </div>
+
+            <div class="loading-text">
+                loading happiness... 🌻
+            </div>
+
+        </div>
+
+        <button class="enter-btn" onclick="goToSlide(2)">
+            Enter your little world ✨
+        </button>
+
+    </main>
+
+</section>
+
+
+<!-- ================= SLIDE 2 ================= -->
 
 <section id="slide2">
 
@@ -448,51 +547,122 @@ h1 {
     </div>
 
 </section>
-    <div class="small-title">
-        Someone has a birthday today... <span>👀</span>
-    </div>
 
-    <h1>
-        Happy Birthday,
-        <div class="name">Sadhana!</div>
-    </h1>
 
-    <div class="subtitle">
-        This little world is made just for you ♡
-    </div>
+<!-- ================= SLIDE 3 ================= -->
 
-    <div class="loading-area">
+<section id="slide3">
 
-        <div class="loading-bar">
-            <div class="loading-fill"></div>
+    <div class="dream-wrapper">
+
+        <div style="font-size:30px;">🌻 ✨ 🌻</div>
+
+        <h2>For the girl with BIG dreams</h2>
+
+        <p class="dream-intro">
+            From my side, I genuinely hope that one day I get to watch
+            all those beautifully impossible-looking dreams of yours
+            turn into your reality. 🥹
+        </p>
+
+        <div class="dream-grid">
+
+            <div class="dream-card">
+                <div class="icon">🎬</div>
+                <h3>Your Reality Show Era</h3>
+                <p>
+                    I hope one day I get to see you on a reality show —
+                    Bigg Boss, Khatron Ke Khiladi, or something we
+                    haven't even heard of yet. I hope life keeps opening
+                    doors big enough for your ambitions.
+                </p>
+            </div>
+
+            <div class="dream-card">
+                <div class="icon">🏡</div>
+                <h3>Your Own “GHAR”</h3>
+                <p>
+                    I hope one day I come to meet you at your own
+                    “GHAR” — the one you've imagined, dreamed about,
+                    and built for yourself.
+                </p>
+            </div>
+
+            <div class="dream-card">
+                <div class="icon">🚘</div>
+                <h3>The BMW Moment</h3>
+                <p>
+                    I hope one day I see you driving around in your
+                    dream supercar — obviously a BMW, because what else? 😂
+                </p>
+            </div>
+
+            <div class="dream-card">
+                <div class="icon">🌍</div>
+                <h3>World Traveller</h3>
+                <p>
+                    I hope one day I open your stories and see pictures
+                    from some beautiful corner of the world, because you
+                    finally got to experience everything you've always wanted.
+                </p>
+            </div>
+
+            <div class="dream-card">
+                <div class="icon">🎶</div>
+                <h3>The Darshan Collab 😭</h3>
+                <p>
+                    And of course, I really hope one day I get to hear
+                    a song of yours with Darshan. Imagine you actually
+                    doing it and me sitting there like —
+                    “BROOO SHE ACTUALLY DID IT.” 😭🤌🏻
+                </p>
+            </div>
+
+            <div class="dream-card">
+                <div class="icon">🎀</div>
+                <h3>Your Little Baby Girl</h3>
+                <p>
+                    I hope one day I see you with that cute little
+                    baby girl you've been manifesting for so long.
+                    I hope you give her all the beautiful qualities
+                    that make you, you — your ambition, courage,
+                    big heart and dreams.
+                </p>
+            </div>
+
         </div>
 
-        <div class="loading-text">
-            loading happiness... 🌻
+        <div class="final-note">
+            I genuinely believe you'll get there one day, cutiee. 🥹
+            <br><br>
+            Maybe not exactly the way you imagine it right now —
+            maybe life will surprise you with something even better.
+            <br><br>
+            But I hope when you look back at the girl who had all
+            these dreams, you realise you actually made them happen.
+            🩵
+            <br><br>
+            And I'll be very happy to say...
+            <br>
+            <b>“I knew she would.”</b> 🌻
         </div>
 
     </div>
 
-    <button class="enter-btn" onclick="goToSlide(2)">
-        Enter your little world ✨
-    </button>
+</section>
 
-</main>
 
 <script>
-function enterWorld() {
-    alert("Okayyy birthday girl... your little world is waiting for you 🌻🩵✨");
-}
-    function goToSlide(number) {
+
+function goToSlide(number) {
 
     document.getElementById("slide1").style.display = "none";
-
     document.getElementById("slide2").style.display = "none";
-
     document.getElementById("slide3").style.display = "none";
 
     document.getElementById("slide" + number).style.display = "flex";
-    }
+}
+
 </script>
 
 </body>
