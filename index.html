@@ -435,6 +435,247 @@ h1 {
         padding: 28px 20px;
     }
 }
+/* ================= SLIDE 4 ================= */
+
+#slide4 {
+    position: fixed;
+    inset: 0;
+    min-height: 100vh;
+    width: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 50% 30%, rgba(255,220,150,.22), transparent 25%),
+        linear-gradient(145deg, #07152e, #173d70, #75608d);
+}
+
+.gift-scene {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gift-message {
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    font-size: 32px;
+    margin-bottom: 35px;
+    animation: floatMessage 2.5s ease-in-out infinite;
+}
+
+.gift-message span {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    margin-top: 8px;
+    opacity: .85;
+}
+
+@keyframes floatMessage {
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+/* GIFT BOX */
+
+.gift-box {
+    position: relative;
+    width: 190px;
+    height: 150px;
+    cursor: pointer;
+    transition: transform .3s ease;
+    z-index: 5;
+}
+
+.gift-box:hover {
+    transform: scale(1.05);
+}
+
+.gift-body {
+    position: absolute;
+    bottom: 0;
+    width: 190px;
+    height: 115px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #b84c72, #7c2850);
+    box-shadow: 0 20px 35px rgba(0,0,0,.35);
+}
+
+.gift-lid {
+    position: absolute;
+    top: 0;
+    left: -8px;
+    width: 206px;
+    height: 45px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #d96b91, #96345f);
+    box-shadow: 0 8px 15px rgba(0,0,0,.25);
+    z-index: 3;
+    transition: transform .8s ease;
+}
+
+.ribbon-top {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 45px;
+    background: #ffd66f;
+}
+
+.ribbon-vertical {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 115px;
+    background: #ffd66f;
+}
+
+.ribbon-horizontal {
+    position: absolute;
+    top: 48%;
+    width: 190px;
+    height: 18px;
+    background: #ffd66f;
+}
+
+.touch-text {
+    margin-top: 25px;
+    font-family: 'Caveat', cursive;
+    font-size: 23px;
+    animation: pulseText 1.5s infinite;
+}
+
+@keyframes pulseText {
+    50% {
+        opacity: .45;
+    }
+}
+
+/* CAKE */
+
+.cake {
+    position: absolute;
+    bottom: 38%;
+    opacity: 0;
+    transform: translateY(80px) scale(.6);
+    pointer-events: none;
+}
+
+.cake-top {
+    font-size: 115px;
+    filter: drop-shadow(0 8px 15px rgba(0,0,0,.3));
+}
+
+.cake-name {
+    position: absolute;
+    z-index: 2;
+    top: 68px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Caveat', cursive;
+    font-size: 19px;
+    font-weight: bold;
+    color: #7c2850;
+}
+
+.candles {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 27px;
+    white-space: nowrap;
+}
+
+.candles span {
+    margin: 0 3px;
+}
+
+.birthday-reveal {
+    position: absolute;
+    bottom: 17%;
+    font-family: 'Caveat', cursive;
+    font-size: clamp(34px, 7vw, 65px);
+    color: #ffd978;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* OPEN ANIMATION */
+
+#slide4.opened .gift-lid {
+    transform: translateY(-100px) rotate(-8deg);
+}
+
+#slide4.opened .gift-box {
+    animation: disappearGift .8s .3s forwards;
+}
+
+#slide4.opened .touch-text,
+#slide4.opened .gift-message {
+    opacity: 0;
+    transition: opacity .4s;
+}
+
+#slide4.opened .cake {
+    animation: cakeRise 1.2s .5s forwards;
+}
+
+#slide4.opened .birthday-reveal {
+    animation: revealBirthday 1s 1.5s forwards;
+}
+
+@keyframes disappearGift {
+    to {
+        opacity: 0;
+        transform: scale(.7);
+    }
+}
+
+@keyframes cakeRise {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes revealBirthday {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+
+    .gift-box {
+        transform: scale(.85);
+    }
+
+    .gift-message {
+        font-size: 28px;
+    }
+
+    .cake {
+        bottom: 36%;
+    }
+
+    .cake-top {
+        font-size: 90px;
+    }
+
+            }
 </style>
 </head>
 
@@ -650,15 +891,66 @@ h1 {
     </div>
 
 </section>
+<!-- ================= SLIDE 4 ================= -->
 
+<section id="slide4">
+
+    <div class="gift-scene">
+
+        <div class="gift-message">
+            <div>Wait... 👀</div>
+            <span>There's something inside for you.</span>
+        </div>
+
+        <div class="gift-box" onclick="openGift()">
+
+            <div class="gift-lid">
+                <div class="ribbon-top"></div>
+            </div>
+
+            <div class="gift-body">
+                <div class="ribbon-vertical"></div>
+                <div class="ribbon-horizontal"></div>
+            </div>
+
+        </div>
+
+        <div class="touch-text">
+            Tap the gift to open it 🎁
+        </div>
+
+        <div class="cake" id="birthdayCake">
+
+            <div class="cake-name">SADHANA</div>
+
+            <div class="candles">
+                <span>🕯️</span>
+                <span>🕯️</span>
+                <span>🕯️</span>
+            </div>
+
+            <div class="cake-top">🎂</div>
+
+        </div>
+
+        <div class="birthday-reveal" id="birthdayReveal">
+            HAPPY BIRTHDAY, SADHANA! 🥹🩵
+        </div>
+
+    </div>
+
+</section>
 
 <script>
 
 function goToSlide(number) {
-
+function openGift() {
+    document.getElementById("slide4").classList.add("opened");
+}
     document.getElementById("slide1").style.display = "none";
     document.getElementById("slide2").style.display = "none";
     document.getElementById("slide3").style.display = "none";
+    document.getElementById("slide4").style.display = "none";
 
     document.getElementById("slide" + number).style.display = "flex";
 }
