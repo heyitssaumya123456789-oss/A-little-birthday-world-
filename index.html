@@ -936,7 +936,9 @@ h1 {
         <div class="birthday-reveal" id="birthdayReveal">
             HAPPY BIRTHDAY, SADHANA! 🥹🩵
         </div>
-
+     <button class="enter-btn" onclick="goToSlide(4)">
+    There's something waiting for you 🎁
+     </button>
     </div>
 
 </section>
@@ -944,9 +946,7 @@ h1 {
 <script>
 
 function goToSlide(number) {
-function openGift() {
-    document.getElementById("slide4").classList.add("opened");
-}
+
     document.getElementById("slide1").style.display = "none";
     document.getElementById("slide2").style.display = "none";
     document.getElementById("slide3").style.display = "none";
@@ -955,7 +955,12 @@ function openGift() {
     document.getElementById("slide" + number).style.display = "flex";
 }
 
-</script>
+function openGift() {
 
+    document.getElementById("slide4").classList.add("opened");
+
+}
+
+</script>
 </body>
 </html>
