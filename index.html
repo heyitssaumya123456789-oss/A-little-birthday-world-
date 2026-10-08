@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -12,10 +13,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
-
-/* =========================
-   GENERAL
-========================= */
 
 * {
     box-sizing: border-box;
@@ -32,6 +29,7 @@ body {
 
 button {
     font-family: 'Poppins', sans-serif;
+    cursor: pointer;
 }
 
 .container {
@@ -104,7 +102,6 @@ button {
     border-radius: 30px;
     font-size: 14px;
     font-weight: 600;
-    cursor: pointer;
     box-shadow: 0 8px 25px rgba(0,0,0,0.2);
 }
 
@@ -129,13 +126,16 @@ button {
     from {
         width: 30%;
     }
+
     to {
         width: 90%;
     }
 }
 
 
-/* moon */
+/* =========================
+   MOON + STARS
+========================= */
 
 .moon {
     position: absolute;
@@ -166,17 +166,41 @@ button {
     animation: twinkle 2s infinite alternate;
 }
 
-.star1 { top: 15%; left: 12%; }
-.star2 { top: 27%; left: 25%; animation-delay: .5s; }
-.star3 { top: 12%; right: 35%; animation-delay: .8s; }
-.star4 { top: 35%; right: 13%; animation-delay: .3s; }
-.star5 { top: 20%; left: 48%; animation-delay: 1s; }
+.star1 {
+    top: 15%;
+    left: 12%;
+}
+
+.star2 {
+    top: 27%;
+    left: 25%;
+    animation-delay: .5s;
+}
+
+.star3 {
+    top: 12%;
+    right: 35%;
+    animation-delay: .8s;
+}
+
+.star4 {
+    top: 35%;
+    right: 13%;
+    animation-delay: .3s;
+}
+
+.star5 {
+    top: 20%;
+    left: 48%;
+    animation-delay: 1s;
+}
 
 @keyframes twinkle {
     from {
         opacity: .35;
         transform: scale(.8);
     }
+
     to {
         opacity: 1;
         transform: scale(1.15);
@@ -269,7 +293,6 @@ button {
     background: #f4c96b;
     color: #25152f;
     font-weight: 600;
-    cursor: pointer;
 }
 
 
@@ -384,7 +407,6 @@ button {
     margin: 35px auto;
     position: relative;
     border-radius: 8px;
-    cursor: pointer;
     box-shadow: 0 18px 35px rgba(0,0,0,.4);
     transition: transform .3s ease;
 }
@@ -478,6 +500,7 @@ button {
         opacity: 0;
         transform: translateY(15px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -486,7 +509,7 @@ button {
 
 
 /* =========================
-   SLIDE 5
+   SLIDE 5 CSS
 ========================= */
 
 #slide5 {
@@ -593,7 +616,6 @@ button {
     color: #25152f;
     font-weight: 600;
     font-size: 14px;
-    cursor: pointer;
     box-shadow: 0 6px 20px rgba(244,201,107,.2);
 }
 
@@ -643,7 +665,6 @@ button {
 
 </style>
 </head>
-
 
 <body>
 
@@ -756,7 +777,6 @@ button {
             There are some things I genuinely hope life gives you.
         </div>
 
-
         <div class="dream-grid">
 
             <div class="dream-card">
@@ -790,7 +810,6 @@ button {
             </div>
 
         </div>
-
 
         <div class="dream-message">
 
@@ -860,13 +879,11 @@ button {
             </p>
 
         </div>
+            </div>
 
-
-        <button class="next-button" onclick="goToSlide(4)">
-            There's something waiting for you... 🎁
-        </button>
-
-    </div>
+    <button class="next-button" onclick="goToSlide(4)">
+        There's something waiting for you... 🎁
+    </button>
 
 </div>
 
@@ -889,7 +906,6 @@ button {
             But you'll have to open it yourself. 🎁
         </div>
 
-
         <div class="gift-box" onclick="openGift()">
 
             <div class="gift-lid"></div>
@@ -900,11 +916,9 @@ button {
 
         </div>
 
-
         <div class="gift-text">
             tap the gift 🎁
         </div>
-
 
         <div class="gift-reveal">
 
@@ -941,7 +955,6 @@ button {
         A few things I wish for you... 🌙
     </div>
 
-
     <div class="curtain-scene">
 
         <div class="memory-content" id="memoryContent">
@@ -956,20 +969,17 @@ button {
 
             </div>
 
-
             <div class="memory-thought" id="memoryThought">
                 I hope people love you the way you love them. 🌻
             </div>
 
         </div>
 
-
         <div class="curtain left" id="leftCurtain"></div>
 
         <div class="curtain right" id="rightCurtain"></div>
 
     </div>
-
 
     <button
         class="curtain-button"
@@ -988,11 +998,6 @@ button {
 
 <script>
 
-
-/* =========================
-   SLIDE NAVIGATION
-========================= */
-
 function goToSlide(number) {
 
     document.getElementById("slide1").style.display = "none";
@@ -1006,10 +1011,6 @@ function goToSlide(number) {
 }
 
 
-/* =========================
-   GIFT BOX
-========================= */
-
 function openGift() {
 
     document.getElementById("slide4").classList.add("opened");
@@ -1017,18 +1018,13 @@ function openGift() {
 }
 
 
-/* =========================
-   SLIDE 5 CURTAINS
-========================= */
-
 let memoryNumber = 0;
 
 
 function openCurtain() {
 
-    documement 
-       const curtainLeft = document.querySelector(".curtain-left");
-    const curtainRight = document.querySelector(".curtain-right");
+    const curtainLeft = document.querySelector(".curtain.left");
+    const curtainRight = document.querySelector(".curtain.right");
 
     curtainLeft.classList.add("open");
     curtainRight.classList.add("open");
@@ -1036,14 +1032,10 @@ function openCurtain() {
 }
 
 
-/* =========================
-   CLOSE CURTAIN
-========================= */
-
 function closeCurtain() {
 
-    const curtainLeft = document.querySelector(".curtain-left");
-    const curtainRight = document.querySelector(".curtain-right");
+    const curtainLeft = document.querySelector(".curtain.left");
+    const curtainRight = document.querySelector(".curtain.right");
 
     curtainLeft.classList.remove("open");
     curtainRight.classList.remove("open");
@@ -1051,15 +1043,32 @@ function closeCurtain() {
 }
 
 
-/* =========================
-   NEXT MEMORY
-========================= */
-
 function nextMemory() {
 
-    memoryNumber++;
+    /* FIRST CLICK:
+       Open the first curtain
+    */
+
+    if (memoryNumber === 0) {
+
+        memoryNumber = 1;
+
+        openCurtain();
+
+        document.getElementById("curtainButton").innerText =
+            "Next little wish... 🌙";
+
+        return;
+    }
+
+
+    /* SECOND CLICK:
+       Close curtain → change image/text → open again
+    */
 
     if (memoryNumber === 1) {
+
+        memoryNumber = 2;
 
         closeCurtain();
 
@@ -1068,17 +1077,24 @@ function nextMemory() {
             document.getElementById("memoryImage").src =
                 "6c936e086006e1b137f07232e8fca513.jpg";
 
-            document.getElementById("memoryText").innerText =
+            document.getElementById("memoryThought").innerText =
                 "I hope you get your favourite things… because what will you do with a whole garden if there is no your favv flower? 🌻";
 
             openCurtain();
 
         }, 1200);
 
+        return;
     }
 
 
-    else if (memoryNumber === 2) {
+    /* THIRD CLICK:
+       Close curtain → change to final thought → open
+    */
+
+    if (memoryNumber === 2) {
+
+        memoryNumber = 3;
 
         closeCurtain();
 
@@ -1087,19 +1103,27 @@ function nextMemory() {
             document.getElementById("memoryImage").src =
                 "f6c1c57013218c7be40a0cb469f21fee.jpg";
 
-            document.getElementById("memoryText").innerText =
+            document.getElementById("memoryThought").innerText =
                 "I hope you find a place where you never have to shrink yourself to feel like you belong. 🌙";
 
             openCurtain();
 
+            document.getElementById("curtainButton").innerText =
+                "That's all... for now 🩵";
+
         }, 1200);
 
+        return;
     }
 
 
-    else {
+    /* FOURTH CLICK */
 
-        alert("And that's it… just a few little wishes from my heart for you. 🩵🌻");
+    if (memoryNumber === 3) {
+
+        alert(
+            "And that's it… just a few little wishes from my heart for you. 🩵🌻"
+        );
 
     }
 
