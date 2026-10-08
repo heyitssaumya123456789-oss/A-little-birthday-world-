@@ -1,658 +1,594 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>A Little Birthday World 🌻</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+/* =========================
+   GENERAL
+========================= */
 
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    min-height: 100vh;
-    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
     font-family: 'Poppins', sans-serif;
-    background:
-        radial-gradient(circle at 75% 35%, rgba(255,210,150,.35), transparent 20%),
-        linear-gradient(145deg, #07152e 0%, #102f62 38%, #6d6a9d 70%, #f2b978 100%);
+    background: #0b1035;
     color: white;
 }
 
-
-/* ================= SLIDE 1 ================= */
-
-#slide1 {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    min-height: 100vh;
-    overflow: hidden;
-}
-
-.star {
-    position: absolute;
-    color: white;
-    font-size: 18px;
-    animation: twinkle 2.5s infinite alternate;
-}
-
-.s1 {
-    top: 12%;
-    left: 12%;
-}
-
-.s2 {
-    top: 24%;
-    left: 72%;
-    animation-delay: .5s;
-}
-
-.s3 {
-    top: 15%;
-    left: 88%;
-    animation-delay: 1s;
-}
-
-.s4 {
-    top: 42%;
-    left: 20%;
-    animation-delay: 1.5s;
-}
-
-.s5 {
-    top: 55%;
-    left: 80%;
-    animation-delay: .8s;
-}
-
-@keyframes twinkle {
-    from {
-        opacity: .3;
-        transform: scale(.8);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1.2);
-    }
-}
-
-.moon {
-    position: absolute;
-    right: 14%;
-    top: 20%;
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
-    background: #fff4cf;
-    box-shadow: 0 0 35px rgba(255,240,190,.35);
-}
-
-.moon:after {
-    content: "";
-    position: absolute;
-    left: -13px;
-    top: -5px;
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
-    background: #193c72;
-}
-
-.sunflower {
-    position: absolute;
-    font-size: 65px;
-    filter: drop-shadow(0 5px 8px rgba(0,0,0,.25));
-}
-
-.flower1 {
-    bottom: 8%;
-    left: 4%;
-    transform: rotate(-10deg);
-}
-
-.flower2 {
-    bottom: 12%;
-    left: 12%;
-    font-size: 45px;
-    transform: rotate(12deg);
-}
-
-.flower3 {
-    right: 4%;
-    bottom: 8%;
-    font-size: 48px;
-    transform: rotate(10deg);
-}
-
-.date {
-    position: absolute;
-    right: 8%;
-    top: 7%;
-    font-family: 'Caveat', cursive;
-    font-size: 22px;
-    transform: rotate(-4deg);
+button {
+    font-family: 'Poppins', sans-serif;
 }
 
 .container {
     min-height: 100vh;
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 25px;
     position: relative;
-    z-index: 5;
-}
-
-.small-title {
-    font-family: 'Caveat', cursive;
-    font-size: clamp(22px, 4vw, 30px);
-    margin-bottom: 15px;
-    letter-spacing: 1px;
-}
-
-.small-title span {
-    display: inline-block;
-    animation: blink 1.5s infinite;
-}
-
-@keyframes blink {
-    50% {
-        transform: scale(1.15);
-    }
-}
-
-h1 {
-    font-family: 'Caveat', cursive;
-    font-size: clamp(55px, 11vw, 105px);
-    font-weight: 600;
-    line-height: .9;
-    text-shadow: 0 5px 25px rgba(0,0,0,.18);
-}
-
-.name {
-    color: #ffd979;
-    margin-top: 12px;
-}
-
-.subtitle {
-    font-size: clamp(14px, 3vw, 20px);
-    margin-top: 30px;
-    font-weight: 300;
-    letter-spacing: .5px;
-}
-
-.loading-area {
-    margin-top: 38px;
-}
-
-.loading-bar {
-    width: min(340px, 70vw);
-    height: 13px;
-    border: 2px solid rgba(255,255,255,.85);
-    border-radius: 20px;
-    padding: 2px;
     overflow: hidden;
 }
 
-.loading-fill {
-    width: 100%;
-    height: 100%;
+
+/* =========================
+   SLIDE 1
+========================= */
+
+#slide1 {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 50% 75%, #ffd77a 0%, transparent 28%),
+        linear-gradient(180deg, #17194a 0%, #40306d 48%, #e68d6d 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.opening-content {
+    position: relative;
+    z-index: 5;
+    padding: 25px;
+    max-width: 600px;
+}
+
+.opening-small {
+    font-size: 15px;
+    color: #ffe7bb;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.opening-title {
+    font-family: 'Caveat', cursive;
+    font-size: clamp(42px, 11vw, 72px);
+    line-height: 0.95;
+    color: #fff5d6;
+    margin: 5px 0 15px;
+    text-shadow: 0 4px 18px rgba(0,0,0,0.2);
+}
+
+.opening-subtitle {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.date {
+    color: #ffe4a8;
+    font-family: 'Caveat', cursive;
+    font-size: 24px;
+    margin-bottom: 18px;
+}
+
+.enter-button {
+    border: none;
+    background: #f4c96b;
+    color: #271735;
+    padding: 13px 25px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.loading {
+    width: 170px;
+    height: 5px;
+    background: rgba(255,255,255,0.25);
     border-radius: 20px;
-    background: linear-gradient(90deg, #ffd66f, #fff1b2);
-    animation: loading 3s ease-in-out;
-    transform-origin: left;
+    margin: 18px auto 0;
+    overflow: hidden;
+}
+
+.loading-bar {
+    height: 100%;
+    width: 70%;
+    background: #ffe19a;
+    border-radius: 20px;
+    animation: loading 2s infinite alternate;
 }
 
 @keyframes loading {
     from {
-        width: 0%;
+        width: 30%;
     }
-
     to {
-        width: 100%;
+        width: 90%;
     }
 }
 
-.loading-text {
-    font-family: 'Caveat', cursive;
-    font-size: 20px;
-    margin-top: 8px;
-}
 
-.enter-btn {
-    margin-top: 35px;
-    padding: 13px 30px;
-    border: 1px solid rgba(255,255,255,.7);
-    border-radius: 30px;
-    background: rgba(255,255,255,.12);
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    font-size: 15px;
-    cursor: pointer;
-    backdrop-filter: blur(8px);
-    transition: .3s;
-}
+/* moon */
 
-.enter-btn:hover {
-    transform: translateY(-3px);
-    background: rgba(255,255,255,.22);
-}
-
-.note {
+.moon {
     position: absolute;
-    bottom: 4%;
-    right: 7%;
-    width: 180px;
-    padding: 18px;
-    background: #f3d3bd;
-    color: #4c3540;
-    font-family: 'Caveat', cursive;
-    font-size: 17px;
-    transform: rotate(4deg);
-    box-shadow: 0 10px 25px rgba(0,0,0,.2);
+    top: 8%;
+    right: 12%;
+    width: 65px;
+    height: 65px;
+    background: #fff0b5;
+    border-radius: 50%;
+    box-shadow: 0 0 35px rgba(255,240,181,0.5);
 }
 
-.note::before {
-    content: "♡";
+.moon::after {
+    content: "";
     position: absolute;
-    top: -18px;
-    left: 45%;
-    font-size: 25px;
-    color: white;
+    width: 65px;
+    height: 65px;
+    background: #17194a;
+    border-radius: 50%;
+    left: 22px;
+    top: -8px;
+}
+
+.star {
+    position: absolute;
+    color: #fff2b5;
+    font-size: 18px;
+    animation: twinkle 2s infinite alternate;
+}
+
+.star1 { top: 15%; left: 12%; }
+.star2 { top: 27%; left: 25%; animation-delay: .5s; }
+.star3 { top: 12%; right: 35%; animation-delay: .8s; }
+.star4 { top: 35%; right: 13%; animation-delay: .3s; }
+.star5 { top: 20%; left: 48%; animation-delay: 1s; }
+
+@keyframes twinkle {
+    from { opacity: .35; transform: scale(.8); }
+    to { opacity: 1; transform: scale(1.15); }
+}
+
+.sunflower {
+    position: absolute;
+    font-size: 45px;
+    z-index: 2;
+}
+
+.sunflower1 {
+    bottom: 7%;
+    left: 7%;
+    transform: rotate(-12deg);
+}
+
+.sunflower2 {
+    bottom: 10%;
+    right: 8%;
+    transform: rotate(15deg);
 }
 
 .books {
     position: absolute;
-    bottom: 2%;
-    left: 5%;
-    font-family: 'Caveat', cursive;
-    font-size: 18px;
-    border-radius: 20px;
-    text-align: left;
-    background: rgba(255,255,255,.10);
-    border: 1px solid rgba(255,255,255,.16);
-    backdrop-filter: blur(8px);
-}
-
-.book {
-    padding: 4px 12px;
+    bottom: 4%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 50px;
+    opacity: .9;
 }
 
 
-/* ================= SLIDE 2 ================= */
+/* =========================
+   SLIDE 2
+========================= */
 
 #slide2 {
-    position: fixed;
-    inset: 0;
-    min-height: 100vh;
-    width: 100%;
     display: none;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-
+    min-height: 100vh;
     background:
-        radial-gradient(circle at 50% 35%, rgba(255,220,160,.35), transparent 28%),
-        linear-gradient(145deg, #172b55, #3d5480, #c38b78);
+        radial-gradient(circle at 50% 40%, rgba(255,215,130,.22), transparent 30%),
+        linear-gradient(145deg, #15143d, #30285c, #a25f64);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px 20px;
+    position: relative;
+    overflow: hidden;
 }
 
 .krishna-card {
-    width: min(650px, 90vw);
-    padding: 45px 35px;
-    text-align: center;
-    border-radius: 30px;
-    background: rgba(255,255,255,.10);
-    border: 1px solid rgba(255,255,255,.25);
-    backdrop-filter: blur(12px);
-    box-shadow: 0 20px 60px rgba(0,0,0,.25);
+    max-width: 600px;
+    padding: 35px 25px;
+    position: relative;
+    z-index: 3;
 }
 
-.krishna-card .small {
-    font-family: 'Caveat', cursive;
-    font-size: 22px;
-    margin-top: 12px;
+.peacock {
+    font-size: 60px;
+    margin-bottom: 8px;
 }
 
-.krishna-card h2 {
+.sakhi {
     font-family: 'Caveat', cursive;
-    font-size: 55px;
-    color: #ffd978;
-    margin: 8px 0 20px;
+    font-size: 39px;
+    color: #ffe6a5;
+    margin-bottom: 18px;
 }
 
-.krishna-note {
-    font-family: 'Caveat', cursive;
-    font-size: 28px;
-    line-height: 1.4;
+.krishna-text {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #fff;
 }
 
 .shyam {
     margin-top: 25px;
     font-family: 'Caveat', cursive;
-    font-size: 22px;
+    font-size: 27px;
+    color: #ffe09b;
 }
 
-.krishna-card button {
-    margin-top: 30px;
-    padding: 12px 25px;
-    border: 1px solid rgba(255,255,255,.6);
-    border-radius: 25px;
-    background: rgba(255,255,255,.12);
-    color: white;
-    font-family: 'Poppins', sans-serif;
+.next-button {
+    margin-top: 25px;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    background: #f4c96b;
+    color: #25152f;
+    font-weight: 600;
     cursor: pointer;
 }
 
 
-/* ================= SLIDE 3 ================= */
+/* =========================
+   SLIDE 3
+========================= */
 
 #slide3 {
-    position: fixed;
-    inset: 0;
-    min-height: 100vh;
-    width: 100%;
     display: none;
-    overflow-y: auto;
-    padding: 50px 20px;
+    min-height: 100vh;
     background:
-        radial-gradient(circle at 50% 20%, rgba(255,210,140,.25), transparent 25%),
-        linear-gradient(145deg, #07152e, #173d70, #75608d);
-}
-
-.dream-wrapper {
-    width: min(950px, 100%);
-    margin: auto;
+        radial-gradient(circle at 50% 20%, rgba(255,207,117,.16), transparent 30%),
+        linear-gradient(150deg, #090d2c, #151b48, #3a2247);
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    padding: 35px 20px;
+    overflow-y: auto;
 }
 
-.dream-wrapper h2 {
+.dream-container {
+    max-width: 700px;
+}
+
+.dream-title {
     font-family: 'Caveat', cursive;
-    font-size: clamp(40px, 7vw, 65px);
-    color: #ffd978;
-    margin: 10px 0 15px;
+    font-size: 44px;
+    color: #ffe3a2;
+    margin-bottom: 15px;
 }
 
 .dream-intro {
-    max-width: 750px;
-    margin: auto;
-    font-size: 15px;
+    color: #fff;
     line-height: 1.7;
+    font-size: 15px;
+    margin-bottom: 22px;
 }
 
 .dream-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
-    margin-top: 30px;
+    gap: 12px;
+    margin: 20px 0;
 }
 
 .dream-card {
-    padding: 22px;
-    border-radius: 22px;
-    background: rgba(255,255,255,.10);
-    border: 1px solid rgba(255,255,255,.18);
-    backdrop-filter: blur(8px);
+    background: rgba(255,255,255,0.09);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 18px;
+    padding: 16px 8px;
+    font-size: 14px;
+}
+
+.dream-message {
     text-align: left;
+    background: rgba(255,255,255,0.06);
+    border-radius: 20px;
+    padding: 22px;
+    margin-top: 15px;
+    font-size: 14px;
+    line-height: 1.75;
 }
 
-.dream-card .icon {
-    font-size: 28px;
+.dream-message p {
+    margin: 0 0 14px;
 }
 
-.dream-card h3 {
-    font-family: 'Caveat', cursive;
-    font-size: 28px;
-    color: #ffd978;
-    margin: 5px 0;
-}
-
-.dream-card p {
-    font-size: 13px;
-    line-height: 1.6;
-}
-
-.final-note {
-    max-width: 750px;
-    margin: 30px auto;
-    padding-bottom: 10px;
-    font-family: 'Caveat', cursive;
-    font-size: 28px;
-    line-height: 1.4;
-    color: #fff1c2;
+.dream-message p:last-child {
+    margin-bottom: 0;
 }
 
 
-/* ================= SLIDE 4 ================= */
+/* =========================
+   SLIDE 4
+========================= */
 
 #slide4 {
-    position: fixed;
-    inset: 0;
-    min-height: 100vh;
-    width: 100%;
     display: none;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-
+    min-height: 100vh;
     background:
-        radial-gradient(circle at 50% 30%, rgba(255,220,150,.22), transparent 25%),
-        linear-gradient(145deg, #07152e, #173d70, #75608d);
-}
-
-.gift-scene {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+        radial-gradient(circle at 50% 35%, rgba(255,211,125,.18), transparent 28%),
+        linear-gradient(145deg, #090d2d, #20183f, #47203e);
     align-items: center;
-}
-
-.gift-message {
+    justify-content: center;
     text-align: center;
+    padding: 30px 20px;
+    overflow: hidden;
+}
+
+.gift-container {
+    max-width: 600px;
+}
+
+.gift-title {
     font-family: 'Caveat', cursive;
-    font-size: 32px;
-    margin-bottom: 35px;
-    animation: floatMessage 2.5s ease-in-out infinite;
+    color: #ffe5a6;
+    font-size: 38px;
+    margin-bottom: 8px;
 }
 
-.gift-message span {
-    display: block;
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    margin-top: 8px;
-    opacity: .85;
+.gift-subtitle {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #fff;
+    margin-bottom: 30px;
 }
-
-@keyframes floatMessage {
-    50% {
-        transform: translateY(-6px);
-    }
-}
-
-
-/* GIFT BOX */
 
 .gift-box {
-    position: relative;
     width: 190px;
-    height: 150px;
+    height: 145px;
+    background: #8d3155;
+    margin: 35px auto;
+    position: relative;
+    border-radius: 8px;
     cursor: pointer;
+    box-shadow: 0 18px 35px rgba(0,0,0,.4);
     transition: transform .3s ease;
-    z-index: 5;
 }
 
 .gift-box:hover {
-    transform: scale(1.05);
+    transform: translateY(-7px);
 }
 
-.gift-body {
+.gift-box::before {
+    content: "";
     position: absolute;
-    bottom: 0;
+    width: 30px;
+    height: 145px;
+    background: #f4c96b;
+    left: 80px;
+    top: 0;
+}
+
+.gift-box::after {
+    content: "";
+    position: absolute;
     width: 190px;
-    height: 115px;
-    border-radius: 8px;
-    background: linear-gradient(135deg, #b84c72, #7c2850);
-    box-shadow: 0 20px 35px rgba(0,0,0,.35);
+    height: 28px;
+    background: #f4c96b;
+    left: 0;
+    top: 52px;
 }
 
 .gift-lid {
     position: absolute;
-    top: 0;
-    left: -8px;
-    width: 206px;
-    height: 45px;
+    width: 210px;
+    height: 35px;
+    background: #a53b62;
+    left: -10px;
+    top: -25px;
     border-radius: 8px;
-    background: linear-gradient(135deg, #d96b91, #96345f);
-    box-shadow: 0 8px 15px rgba(0,0,0,.25);
-    z-index: 3;
     transition: transform .8s ease;
-}
-
-.ribbon-top {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 30px;
-    height: 45px;
-    background: #ffd66f;
-}
-
-.ribbon-vertical {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 30px;
-    height: 115px;
-    background: #ffd66f;
-}
-
-.ribbon-horizontal {
-    position: absolute;
-    top: 48%;
-    width: 190px;
-    height: 18px;
-    background: #ffd66f;
-}
-
-.touch-text {
-    margin-top: 25px;
-    font-family: 'Caveat', cursive;
-    font-size: 23px;
-    animation: pulseText 1.5s infinite;
-}
-
-@keyframes pulseText {
-    50% {
-        opacity: .45;
-    }
-}
-
-
-/* CAKE */
-
-.cake {
-    position: absolute;
-    bottom: 38%;
-    opacity: 0;
-    transform: translateY(80px) scale(.6);
-    pointer-events: none;
-}
-
-.cake-top {
-    font-size: 115px;
-    filter: drop-shadow(0 8px 15px rgba(0,0,0,.3));
-}
-
-.cake-name {
-    position: absolute;
     z-index: 2;
-    top: 68px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: 'Caveat', cursive;
-    font-size: 19px;
-    font-weight: bold;
-    color: #7c2850;
 }
 
-.candles {
+.gift-bow {
     position: absolute;
-    top: 12px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 27px;
-    white-space: nowrap;
+    left: 67px;
+    top: -47px;
+    font-size: 48px;
+    z-index: 3;
 }
 
-.candles span {
-    margin: 0 3px;
+.gift-text {
+    font-size: 13px;
+    color: #ffe6ac;
+    margin-top: 8px;
 }
 
-.birthday-reveal {
-    position: absolute;
-    bottom: 17%;
-    font-family: 'Caveat', cursive;
-    font-size: clamp(34px, 7vw, 65px);
-    color: #ffd978;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(20px);
+.gift-reveal {
+    display: none;
+    animation: reveal .9s ease;
 }
-
-
-/* OPEN ANIMATION */
 
 #slide4.opened .gift-lid {
-    transform: translateY(-100px) rotate(-8deg);
+    transform: translateY(-75px) rotate(-8deg);
 }
 
-#slide4.opened .gift-box {
-    animation: disappearGift .8s .3s forwards;
+#slide4.opened .gift-reveal {
+    display: block;
 }
 
-#slide4.opened .touch-text,
-#slide4.opened .gift-message {
-    opacity: 0;
-    transition: opacity .4s;
+#slide4.opened .gift-text {
+    display: none;
 }
 
-#slide4.opened .cake {
-    animation: cakeRise 1.2s .5s forwards;
+.cake {
+    font-size: 65px;
+    margin-top: 20px;
 }
 
-#slide4.opened .birthday-reveal {
-    animation: revealBirthday 1s 1.5s forwards;
+.reveal-title {
+    font-family: 'Caveat', cursive;
+    color: #ffe5a6;
+    font-size: 37px;
+    margin: 8px 0;
 }
 
-@keyframes disappearGift {
-    to {
+.reveal-name {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   SLIDE 5
+========================= */
+
+#slide5 {
+    display: none;
+    min-height: 100vh;
+    width: 100%;
+    background:
+        radial-gradient(circle at center, #29234f, transparent 45%),
+        linear-gradient(145deg, #090b27, #181438, #321d3d);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 25px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.stage-title {
+    color: #ffe6aa;
+    font-family: 'Caveat', cursive;
+    font-size: 36px;
+    margin-bottom: 18px;
+}
+
+.curtain-scene {
+    position: relative;
+    width: min(350px, 90vw);
+    height: 455px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.memory-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.memory-card {
+    width: min(300px, 78vw);
+    background: rgba(255,255,255,.1);
+    padding: 9px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.45);
+}
+
+.memory-card img {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    border-radius: 15px;
+    display: block;
+}
+
+.memory-thought {
+    max-width: 340px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.65;
+    margin: 16px auto;
+}
+
+.curtain {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 5;
+    background: linear-gradient(90deg, #42152c, #7d274a, #45152e);
+    box-shadow: inset 0 0 25px rgba(0,0,0,.5);
+    transition: transform 1.2s ease;
+}
+
+.curtain.left {
+    left: 0;
+    border-radius: 18px 0 0 18px;
+    transform-origin: left;
+}
+
+.curtain.right {
+    right: 0;
+    border-radius: 0 18px 18px 0;
+    transform-origin: right;
+}
+
+.curtain.open.left {
+    transform: translateX(-105%);
+}
+
+.curtain.open.right {
+    transform: translateX(105%);
+}
+
+.curtain-button {
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    background: #f4c96b;
+    color: #25152f;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(244,201,107,.2);
+}
+
+.memory-content.reveal {
+    animation: memoryReveal .8s ease;
+}
+
+@keyframes memoryReveal {
+    from {
         opacity: 0;
-        transform: scale(.7);
+        transform: translateY(18px);
     }
-}
-
-@keyframes cakeRise {
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-@keyframes revealBirthday {
     to {
         opacity: 1;
         transform: translateY(0);
@@ -660,80 +596,22 @@ h1 {
 }
 
 
-/* ================= MOBILE ================= */
+/* mobile */
 
-@media (max-width: 600px) {
-
-    .moon {
-        width: 48px;
-        height: 48px;
-        right: 10%;
-        top: 17%;
-    }
-
-    .moon:after {
-        width: 48px;
-        height: 48px;
-    }
-
-    .flower1 {
-        font-size: 48px;
-    }
-
-    .flower2 {
-        display: none;
-    }
-
-    .note {
-        display: none;
-    }
-
-    .books {
-        left: 3%;
-        bottom: 3%;
-        transform: scale(.75);
-        transform-origin: bottom left;
-    }
-
-    .date {
-        font-size: 18px;
-    }
+@media (max-width: 500px) {
 
     .dream-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .krishna-card {
-        padding: 28px 20px;
+    .dream-message {
+        font-size: 13px;
     }
 
-    .krishna-card h2 {
-        font-size: 45px;
+    .memory-card img {
+        height: 330px;
     }
 
-    .krishna-note {
-        font-size: 24px;
-    }
-
-    .dream-card {
-        padding: 18px;
-    }
-
-    .gift-box {
-        transform: scale(.85);
-    }
-
-    .gift-message {
-        font-size: 28px;
-    }
-
-    .cake {
-        bottom: 36%;
-    }
-
-    .cake-top {
-        font-size: 90px;
-    }
 }
 
 </style>
@@ -743,370 +621,370 @@ h1 {
 <body>
 
 
-<!-- ================= SLIDE 1 ================= -->
+<!-- =====================================================
+     SLIDE 1
+===================================================== -->
 
-<section id="slide1">
-
-    <div class="star s1">✦</div>
-    <div class="star s2">✧</div>
-    <div class="star s3">✦</div>
-    <div class="star s4">✧</div>
-    <div class="star s5">✦</div>
+<div id="slide1" class="container">
 
     <div class="moon"></div>
 
-    <div class="date">12 October ♡</div>
+    <div class="star star1">✦</div>
+    <div class="star star2">✧</div>
+    <div class="star star3">✦</div>
+    <div class="star star4">✧</div>
+    <div class="star star5">✦</div>
 
-    <div class="sunflower flower1">🌻</div>
-    <div class="sunflower flower2">🌻</div>
-    <div class="sunflower flower3">🌻</div>
+    <div class="sunflower sunflower1">🌻</div>
+    <div class="sunflower sunflower2">🌻</div>
 
-    <div class="books">
-        <div class="book">Good Things ✦</div>
-        <div class="book">Take Your Time ♡</div>
-        <div class="book">You Got This!</div>
-    </div>
+    <div class="books">📚</div>
 
-    <div class="note">
-        Today:
-        <br>
-        Be happy.
-        <br>
-        Feel loved.
-        <br>
-        Dream BIG.
-        <br>
-        ♡
-    </div>
+    <div class="opening-content">
 
-    <main class="container">
-
-        <div class="small-title">
-            Someone has a birthday today... <span>👀</span>
+        <div class="opening-small">
+            Someone has a birthday today...
         </div>
 
-        <h1>
-            Happy Birthday,
-            <div class="name">Sadhana!</div>
-        </h1>
-
-        <div class="subtitle">
-            This little world is made just for you ♡
+        <div class="opening-title">
+            Happy Birthday<br>
+            Sadhana! 🩵
         </div>
 
-        <div class="loading-area">
-
-            <div class="loading-bar">
-                <div class="loading-fill"></div>
-            </div>
-
-            <div class="loading-text">
-                loading happiness... 🌻
-            </div>
-
+        <div class="opening-subtitle">
+            This little world is made just for you ✨
         </div>
 
-        <button class="enter-btn" onclick="goToSlide(2)">
+        <div class="date">
+            12 October ♡
+        </div>
+
+        <div class="loading">
+            <div class="loading-bar"></div>
+        </div>
+
+        <div style="margin-top:12px; font-size:12px; color:#fff1ca;">
+            loading happiness...
+        </div>
+
+        <button class="enter-button" onclick="goToSlide(2)">
             Enter your little world ✨
         </button>
 
-    </main>
+    </div>
 
-</section>
+</div>
 
 
-<!-- ================= SLIDE 2 ================= -->
 
-<section id="slide2">
+<!-- =====================================================
+     SLIDE 2
+===================================================== -->
+
+<div id="slide2">
 
     <div class="krishna-card">
 
-        <div style="font-size:35px;">🦚</div>
-
-        <div class="small">
-            A little message from Vrindavan...
+        <div class="peacock">
+            🦚
         </div>
 
-        <h2>Vrindavan ♡</h2>
+        <div class="sakhi">
+            Sakhi...
+        </div>
 
-        <div class="krishna-note">
-            “Sakhi, tum aa rahi ho na
-            <br>
-            mujhse milne Vrindavan?
+        <div class="krishna-text">
+            Tum aa rahi ho na mujhse milne Vrindavan?
             <br><br>
-            Main kab se intezaar
-            <br>
-            kar raha hoon...”
+            Main kab se intezar kar raha hoon...
         </div>
 
         <div class="shyam">
             — Tumhara Shyam 🦚
         </div>
 
-        <button onclick="goToSlide(3)">
-            Aage dekho, birthday girl ✨
+        <button class="next-button" onclick="goToSlide(3)">
+            A little more... ✨
         </button>
 
     </div>
 
-</section>
+</div>
 
 
-<!-- ================= SLIDE 3 ================= -->
 
-<section id="slide3">
+<!-- =====================================================
+     SLIDE 3
+===================================================== -->
 
-    <div class="dream-wrapper">
+<div id="slide3">
 
-        <div style="font-size:30px;">🌻 ✨ 🌻</div>
+    <div class="dream-container">
 
-        <h2>For the girl with BIG dreams</h2>
+        <div class="dream-title">
+            For the girl with BIG dreams ✨
+        </div>
 
-        <p class="dream-intro">
-            From my side, I genuinely hope that one day I get to watch
-            all those beautifully impossible-looking dreams of yours
-            turn into your reality. 🥹
-        </p>
+        <div class="dream-intro">
+            For you, cutiee... 🩵
+            <br>
+            There are some things I genuinely hope life gives you.
+        </div>
 
 
         <div class="dream-grid">
 
             <div class="dream-card">
-
-                <div class="icon">🎬</div>
-
-                <h3>Your Reality Show Era</h3>
-
-                <p>
-                    I hope one day I get to see you on a reality show —
-                    Bigg Boss, Khatron Ke Khiladi, or something we
-                    haven't even heard of yet. I hope life keeps opening
-                    doors big enough for your ambitions.
-                </p>
-
+                🎬<br>
+                Reality Show
             </div>
 
-
             <div class="dream-card">
-
-                <div class="icon">🏡</div>
-
-                <h3>Your Own “GHAR”</h3>
-
-                <p>
-                    I hope one day I come to meet you at your own
-                    “GHAR” — the one you've imagined, dreamed about,
-                    and built for yourself.
-                </p>
-
+                🏡<br>
+                Your Ghar
             </div>
 
-
             <div class="dream-card">
-
-                <div class="icon">🚘</div>
-
-                <h3>The BMW Moment</h3>
-
-                <p>
-                    I hope one day I see you driving around in your
-                    dream supercar — obviously a BMW, because what else? 😂
-                </p>
-
+                🚘<br>
+                BMW
             </div>
 
-
             <div class="dream-card">
-
-                <div class="icon">🌍</div>
-
-                <h3>World Traveller</h3>
-
-                <p>
-                    I hope one day I open your stories and see pictures
-                    from some beautiful corner of the world, because you
-                    finally got to experience everything you've always wanted.
-                </p>
-
+                🌍<br>
+                World Travel
             </div>
 
-
             <div class="dream-card">
-
-                <div class="icon">🎶</div>
-
-                <h3>The Darshan Collab 😭</h3>
-
-                <p>
-                    And of course, I really hope one day I get to hear
-                    a song of yours with Darshan. Imagine you actually
-                    doing it and me sitting there like —
-                    “BROOO SHE ACTUALLY DID IT.” 😭🤌🏻
-                </p>
-
+                🎶<br>
+                Darshan Collab
             </div>
 
-
             <div class="dream-card">
-
-                <div class="icon">🎀</div>
-
-                <h3>Your Little Baby Girl</h3>
-
-                <p>
-                    I hope one day I see you with that cute little
-                    baby girl you've been manifesting for so long.
-                    I hope you give her all the beautiful qualities
-                    that make you, you — your ambition, courage,
-                    big heart and dreams.
-                </p>
-
+                🎀<br>
+                Baby Girl
             </div>
 
         </div>
 
 
-        <div class="final-note">
+        <div class="dream-message">
 
-            I genuinely believe you'll get there one day, cutiee. 🥹
+            <p>
+                I genuinely hope that one day I get to watch all those
+                beautifully impossible-looking dreams of yours turn into
+                your reality. 🥹
+            </p>
 
-            <br><br>
+            <p>
+                I hope one day I get to see you on a reality show —
+                maybe Bigg Boss, Khatron Ke Khiladi, or something we
+                haven't even heard of yet — because I hope life keeps
+                opening doors big enough for your ambitions. ✨
+            </p>
 
-            Maybe not exactly the way you imagine it right now —
-            maybe life will surprise you with something even better.
+            <p>
+                I hope one day I come to meet you at your own
+                <b>“GHAR”</b> — the one you've imagined, dreamed about,
+                and built for yourself. 🏡
+            </p>
 
-            <br><br>
+            <p>
+                I hope one day I see you casually driving around in
+                your dream supercar — obviously a BMW, because what else? 😂🚘
+            </p>
 
-            But I hope when you look back at the girl who had all
-            these dreams, you realise you actually made them happen.
-            🩵
+            <p>
+                I hope one day I open your stories and see pictures from
+                some beautiful corner of the world, because you finally
+                got to travel outside India and experience everything
+                you've always wanted to. 🌍✈️
+            </p>
 
-            <br><br>
+            <p>
+                And of course... I really hope one day I get to hear a
+                song of yours with Darshan. 😭🎶
+                Because imagine you actually doing the thing you've dreamed
+                about and me sitting there like,
+                <b>“BROOO SHE ACTUALLY DID IT.”</b> 😭🤌🏻
+            </p>
 
-            And I'll be very happy to say...
+            <p>
+                And last... but definitely not least — I hope one day I
+                get to see you with that cute little baby girl you've
+                been manifesting for so long. 🥹🎀
+                I hope when that day comes, you give her all the beautiful
+                qualities that make you, you — your ambition, your courage,
+                your big heart, your dreams, and that crazy determination
+                to build the life you want.
+            </p>
 
-            <br>
+            <p>
+                I genuinely believe you'll get there one day, cutiee.
+                Maybe not exactly the way you imagine it right now...
+                maybe life will surprise you with something even better.
+            </p>
 
-            <b>“I knew she would.”</b> 🌻
+            <p>
+                But I hope when you look back at the girl who had all
+                these dreams, you realise she actually made them happen. 🩵
+            </p>
+
+            <p>
+                And I'll be very happy to say,
+                <b>“I knew she would.”</b> 🌻
+            </p>
 
         </div>
 
 
-        <!-- SLIDE 3 → SLIDE 4 BUTTON -->
-
-        <button class="enter-btn" onclick="goToSlide(4)">
-            There's something waiting for you 🎁
+        <button class="next-button" onclick="goToSlide(4)">
+            There's something waiting for you... 🎁
         </button>
-
 
     </div>
 
-</section>
+</div>
 
 
-<!-- ================= SLIDE 4 ================= -->
 
-<section id="slide4">
+<!-- =====================================================
+     SLIDE 4
+===================================================== -->
 
-    <div class="gift-scene">
+<div id="slide4">
 
+    <div class="gift-container">
 
-        <div class="gift-message">
-
-            <div>Wait... 👀</div>
-
-            <span>
-                There's something inside for you.
-            </span>
-
+        <div class="gift-title">
+            Wait... 👀
         </div>
 
+        <div class="gift-subtitle">
+            There's something inside for you.
+            <br>
+            But you'll have to open it yourself. 🎁
+        </div>
 
-        <!-- GIFT BOX -->
 
         <div class="gift-box" onclick="openGift()">
 
-            <div class="gift-lid">
+            <div class="gift-lid"></div>
 
-                <div class="ribbon-top"></div>
-
-            </div>
-
-
-            <div class="gift-body">
-
-                <div class="ribbon-vertical"></div>
-
-                <div class="ribbon-horizontal"></div>
-
+            <div class="gift-bow">
+                🎀
             </div>
 
         </div>
 
 
-        <div class="touch-text">
-            Tap the gift to open it 🎁
+        <div class="gift-text">
+            tap the gift 🎁
         </div>
 
 
-        <!-- CAKE -->
+        <div class="gift-reveal">
 
-        <div class="cake" id="birthdayCake">
-
-            <div class="cake-name">
-                SADHANA
-            </div>
-
-
-            <div class="candles">
-
-                <span>🕯️</span>
-                <span>🕯️</span>
-                <span>🕯️</span>
-
-            </div>
-
-
-            <div class="cake-top">
+            <div class="cake">
                 🎂
             </div>
 
+            <div class="reveal-title">
+                HAPPY BIRTHDAY, SADHANA! 🥹🩵
+            </div>
+
+            <div class="reveal-name">
+                This little world is only getting started...
+            </div>
+
+            <button class="next-button" onclick="goToSlide(5)">
+                One more little thing... 🌙
+            </button>
+
         </div>
-
-
-        <!-- BIRTHDAY REVEAL -->
-
-        <div class="birthday-reveal" id="birthdayReveal">
-
-            HAPPY BIRTHDAY, SADHANA! 🥹🩵
-
-        </div>
-
 
     </div>
 
-</section>
+</div>
 
 
-<!-- ================= JAVASCRIPT ================= -->
+
+<!-- =====================================================
+     SLIDE 5
+===================================================== -->
+
+<div id="slide5">
+
+    <div class="stage-title">
+        A few things I wish for you... 🌙
+    </div>
+
+
+    <div class="curtain-scene">
+
+        <div class="memory-content" id="memoryContent">
+
+            <div class="memory-card">
+
+                <img
+                    id="memoryImage"
+                    src="2accc9daab334912993c932c1323e5fb.jpg"
+                    alt="A beautiful memory"
+                >
+
+            </div>
+
+
+            <div class="memory-thought" id="memoryThought">
+
+                I hope people love you the way you love them. 🌻
+
+            </div>
+
+        </div>
+
+
+        <div class="curtain left" id="leftCurtain"></div>
+
+        <div class="curtain right" id="rightCurtain"></div>
+
+    </div>
+
+
+    <button
+        class="curtain-button"
+        id="curtainButton"
+        onclick="nextMemory()"
+    >
+        Open the curtain 🎭
+    </button>
+
+</div>
+
+
 
 <script>
+
+/* =====================================================
+   SLIDE NAVIGATION
+===================================================== */
 
 function goToSlide(number) {
 
     document.getElementById("slide1").style.display = "none";
-
     document.getElementById("slide2").style.display = "none";
-
     document.getElementById("slide3").style.display = "none";
-
     document.getElementById("slide4").style.display = "none";
-
+    document.getElementById("slide5").style.display = "none";
 
     document.getElementById("slide" + number).style.display = "flex";
 
 }
 
+
+
+/* =====================================================
+   GIFT
+===================================================== */
 
 function openGift() {
 
@@ -1114,9 +992,13 @@ function openGift() {
 
 }
 
-</script>
 
 
-</body>
+/* =====================================================
+   SLIDE 5 MEMORY CURTAIN
+===================================================== */
 
-</html>
+let memoryNumber = 0;
+
+
+fun
