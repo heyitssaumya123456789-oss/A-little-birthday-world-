@@ -173,8 +173,14 @@ button {
 .star5 { top: 20%; left: 48%; animation-delay: 1s; }
 
 @keyframes twinkle {
-    from { opacity: .35; transform: scale(.8); }
-    to { opacity: 1; transform: scale(1.15); }
+    from {
+        opacity: .35;
+        transform: scale(.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.15);
+    }
 }
 
 .sunflower {
@@ -467,6 +473,17 @@ button {
     line-height: 1.6;
 }
 
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 /* =========================
    SLIDE 5
@@ -580,23 +597,10 @@ button {
     box-shadow: 0 6px 20px rgba(244,201,107,.2);
 }
 
-.memory-content.reveal {
-    animation: memoryReveal .8s ease;
-}
 
-@keyframes memoryReveal {
-    from {
-        opacity: 0;
-        transform: translateY(18px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-/* mobile */
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 500px) {
 
@@ -614,6 +618,29 @@ button {
 
 }
 
+
+/* =========================
+   ANIMATION
+========================= */
+
+.memory-content.reveal {
+    animation: memoryReveal .8s ease;
+}
+
+@keyframes memoryReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
 </style>
 </head>
 
@@ -621,9 +648,9 @@ button {
 <body>
 
 
-<!-- =====================================================
+<!-- =========================
      SLIDE 1
-===================================================== -->
+========================= -->
 
 <div id="slide1" class="container">
 
@@ -676,10 +703,9 @@ button {
 </div>
 
 
-
-<!-- =====================================================
+<!-- =========================
      SLIDE 2
-===================================================== -->
+========================= -->
 
 <div id="slide2">
 
@@ -712,10 +738,9 @@ button {
 </div>
 
 
-
-<!-- =====================================================
+<!-- =========================
      SLIDE 3
-===================================================== -->
+========================= -->
 
 <div id="slide3">
 
@@ -846,10 +871,9 @@ button {
 </div>
 
 
-
-<!-- =====================================================
+<!-- =========================
      SLIDE 4
-===================================================== -->
+========================= -->
 
 <div id="slide4">
 
@@ -907,10 +931,9 @@ button {
 </div>
 
 
-
-<!-- =====================================================
+<!-- =========================
      SLIDE 5
-===================================================== -->
+========================= -->
 
 <div id="slide5">
 
@@ -928,16 +951,14 @@ button {
                 <img
                     id="memoryImage"
                     src="2accc9daab334912993c932c1323e5fb.jpg"
-                    alt="A beautiful memory"
+                    alt="A beautiful aesthetic moment"
                 >
 
             </div>
 
 
             <div class="memory-thought" id="memoryThought">
-
                 I hope people love you the way you love them. 🌻
-
             </div>
 
         </div>
@@ -961,12 +982,16 @@ button {
 </div>
 
 
+<!-- =========================
+     JAVASCRIPT
+========================= -->
 
 <script>
 
-/* =====================================================
+
+/* =========================
    SLIDE NAVIGATION
-===================================================== */
+========================= */
 
 function goToSlide(number) {
 
@@ -981,10 +1006,9 @@ function goToSlide(number) {
 }
 
 
-
-/* =====================================================
-   GIFT
-===================================================== */
+/* =========================
+   GIFT BOX
+========================= */
 
 function openGift() {
 
@@ -993,12 +1017,95 @@ function openGift() {
 }
 
 
-
-/* =====================================================
-   SLIDE 5 MEMORY CURTAIN
-===================================================== */
+/* =========================
+   SLIDE 5 CURTAINS
+========================= */
 
 let memoryNumber = 0;
 
 
-fun
+function openCurtain() {
+
+    documement 
+       const curtainLeft = document.querySelector(".curtain-left");
+    const curtainRight = document.querySelector(".curtain-right");
+
+    curtainLeft.classList.add("open");
+    curtainRight.classList.add("open");
+
+}
+
+
+/* =========================
+   CLOSE CURTAIN
+========================= */
+
+function closeCurtain() {
+
+    const curtainLeft = document.querySelector(".curtain-left");
+    const curtainRight = document.querySelector(".curtain-right");
+
+    curtainLeft.classList.remove("open");
+    curtainRight.classList.remove("open");
+
+}
+
+
+/* =========================
+   NEXT MEMORY
+========================= */
+
+function nextMemory() {
+
+    memoryNumber++;
+
+    if (memoryNumber === 1) {
+
+        closeCurtain();
+
+        setTimeout(function () {
+
+            document.getElementById("memoryImage").src =
+                "6c936e086006e1b137f07232e8fca513.jpg";
+
+            document.getElementById("memoryText").innerText =
+                "I hope you get your favourite things… because what will you do with a whole garden if there is no your favv flower? 🌻";
+
+            openCurtain();
+
+        }, 1200);
+
+    }
+
+
+    else if (memoryNumber === 2) {
+
+        closeCurtain();
+
+        setTimeout(function () {
+
+            document.getElementById("memoryImage").src =
+                "f6c1c57013218c7be40a0cb469f21fee.jpg";
+
+            document.getElementById("memoryText").innerText =
+                "I hope you find a place where you never have to shrink yourself to feel like you belong. 🌙";
+
+            openCurtain();
+
+        }, 1200);
+
+    }
+
+
+    else {
+
+        alert("And that's it… just a few little wishes from my heart for you. 🩵🌻");
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
